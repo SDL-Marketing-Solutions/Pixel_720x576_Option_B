@@ -32,10 +32,10 @@
 		#main{left:0;top:0;width:720px;height:576px;background-color:#eeefef;overflow: hidden;}
 		div, p, img {position:absolute;}
 		
-		#background, #txt-05, #logo {left:0;top:0;width:720px;height:576px;}
-		#txt-01,#txt-02,#txt-03,#txt-04,#txt-05 {opacity: 0;}
-		#deal, #phone-final {left:-430px;top:0;width:720px;height:576px;opacity:1;}
-
+		#background, #txt-05, #logo, #phone-final {left:0;top:0;width:720px;height:576px;}
+		#background, #logo, #deal, #phone-spin {opacity: 1;}
+		#txt-01,#txt-02,#txt-03,#txt-04,#txt-05, #phone-final {opacity: 0;}
+		#deal {left:-430px;top:0;width:720px;height:576px;opacity:1;}
 
 		#txt-01 {left:68px;top:86px;font-size: 78px;color:black;width:720px;height:576px;font-family: 'PT Sans', sans-serif;font-weight:bold;line-height: .8em;letter-spacing: -2px;opacity: 0;}
 		#txt-02 {left:350px;top:138px;width:400px;height:auto;color:white;font-size: 24px;}
@@ -52,10 +52,8 @@
 		#txt-08 {left:350px;top:398px;width:400px;height:auto;font-size:16px;color:black;font-family: 'PT Sans', sans-serif;font-weight: normal;}
 
 
-		#background, #logo, #deal, #phone-spin {opacity: 1;}
-
 		#lines {top: -608px; left: -838px; width:799px; height:864px;opacity:1; transform: rotate(42deg);}
-		#line1,#line2,#line3,#line4,#line5,#line6,#line7,#line8,#line9 {top: 0;left:0;width:799px;height:864px; opacity: 1; transform: rotate(-42deg); } 
+		#line1,#line2,#line3,#line4,#line5,#line6,#line7,#line8,#line9,#line11,#line12,#line13,#line14,#line15,#line16,#line17,#line18,#line19, #line21,#line22,#line23,#line24,#line25,#line26,#line27,#line28,#line29 {top: 0;left:0;width:799px;height:864px; opacity: 1; transform: rotate(-42deg); } 
 		/* #line1,#line2,#line3,#line4,#line5,#line6,#line7,#line8 {top:-451px;left:-532px;width:398px;height:432px; opacity: 1; }*/
 
 		#bgExit{left: 0px; top: 0px; width: 100%; height: 100%; cursor: pointer;  background-color: rgba(255,255,255,0);border:1px solid #000000; box-sizing:border-box; -ms-box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box sizing:border-box;}
@@ -71,6 +69,7 @@
    		<img src="background.jpg" id="background"/>
  		
    		<div id="lines">
+
    			<img id="line1" src="line_1.png" />
 			<img id="line2" src="line_2.png" />
 			<img id="line3" src="line_3.png" />
@@ -80,6 +79,27 @@
 			<img id="line7" src="line_7.png" />
 			<img id="line8" src="line_8.png" />
 			<img id="line9" src="line_9.png" />
+
+			<img id="line11" src="line_1.png" />
+			<img id="line12" src="line_2.png" />
+			<img id="line13" src="line_3.png" />
+			<img id="line14" src="line_4.png" />
+			<img id="line15" src="line_5.png" />
+			<img id="line16" src="line_6.png" />
+			<img id="line17" src="line_7.png" />
+			<img id="line18" src="line_8.png" />
+			<img id="line19" src="line_9.png" />
+
+			<img id="line21" src="line_1.png" />
+			<img id="line22" src="line_2.png" />
+			<img id="line23" src="line_3.png" />
+			<img id="line24" src="line_4.png" />
+			<img id="line25" src="line_5.png" />
+			<img id="line26" src="line_6.png" />
+			<img id="line27" src="line_7.png" />
+			<img id="line28" src="line_8.png" />
+			<img id="line29" src="line_9.png" />
+
    		</div>
         <p id="txt-01">Get more<br>Smartphone<br>for your money</p>
 
@@ -108,7 +128,7 @@
 	    var bgExit = document.getElementById("bgExit");
 	     //
 	    function pageLoadedHandler(){
-	        firstAnimation();
+	        startAnimation();
 	        enableButtons();
 	  	}
 	    //
@@ -116,6 +136,10 @@
 			// DCM clickTag (not DC)
 			lastFrame();
 			return window.open(window.clickTag);
+	    }
+	     function lastFrame(){
+	        tl1.progress(1, false);
+	        TweenMax.killAll(); 
 	    }
 	    // 
 	    //
@@ -131,82 +155,51 @@
 	    }
 	    //
 	    var tl1;
-	    var tl2;
-	    var tl3;
-	
 	    //
-	    function firstAnimation(){
+	    function startAnimation(){
 	        //
 	        tl1 = new TimelineMax({repeat:0, repeatDelay: 0});
 
-			tl1.to("#line1", 1, {x: 1800, opacity:1},'-=0').set("#line1", {clearProps: 'x'});
-			tl1.to("#line2", 1, {x: 1800, opacity:1}, '-=.9').set("#line2", {clearProps: 'x'});
-			tl1.to("#line3", 1, {x: 1800, opacity:1}, '-=.8').set("#line3", {clearProps: 'x'});
-			tl1.to("#line4", 1, {x: 1800, opacity:1}, '-=.7').set("#line4", {clearProps: 'x'});
-			tl1.to("#line5", 1, {x: 1800, opacity:1}, '-=.8').set("#line5", {clearProps: 'x'});
-			tl1.to("#line6", 1, {x: 1800, opacity:1}, '-=.9').set("#line6", {clearProps: 'x'});
-			tl1.to("#line7", 1, {x: 1800, opacity:1}, '-=.8').set("#line7", {clearProps: 'x'});
-			tl1.to("#line8", 1, {x: 1800, opacity:1}, '-=.7').set("#line8", {clearProps: 'x'});
-			tl1.to("#line9", 1, {x: 1800, opacity:1}, '-=.8').set("#line9", {clearProps: 'x'});
+			tl1.to("#line1", 1, {x: 1800, opacity:1},'-=0');
+			tl1.to("#line2", 1, {x: 1800, opacity:1}, '-=.9')
+			tl1.to("#line3", 1, {x: 1800, opacity:1}, '-=.8');
+			tl1.to("#line4", 1, {x: 1800, opacity:1}, '-=.7');
+			tl1.to("#line5", 1, {x: 1800, opacity:1}, '-=.8');
+			tl1.to("#line6", 1, {x: 1800, opacity:1}, '-=.9');
+			tl1.to("#line7", 1, {x: 1800, opacity:1}, '-=.8');
+			tl1.to("#line8", 1, {x: 1800, opacity:1}, '-=.7');
+			tl1.to("#line9", 1, {x: 1800, opacity:1}, '-=.8');
 
-			tl1.to("#line1", 1, {x: 1800, opacity:1}, '-=1').set("#line1", {clearProps: 'x'});
-			tl1.to("#line2", 1, {x: 1800, opacity:1}, '-=0.9').set("#line2", {clearProps: 'x'});
-			tl1.to("#line3", 1, {x: 1800, opacity:1}, '-=0.8').set("#line3", {clearProps: 'x'});
-			tl1.to("#line4", 1, {x: 1800, opacity:1}, '-=0.7').set("#line4", {clearProps: 'x'});
-			tl1.to("#line5", 1, {x: 1800, opacity:1}, '-=0.9').set("#line5", {clearProps: 'x'});
-			tl1.to("#line6", 1, {x: 1800, opacity:1}, '-=0.85').set("#line6", {clearProps: 'x'});
-			tl1.to("#line7", 1, {x: 1800, opacity:1}, '-=0.9').set("#line7", {clearProps: 'x'});
-			tl1.to("#line8", 1, {x: 1800, opacity:1}, '-=0.8').set("#line8", {clearProps: 'x'});
-			tl1.to("#line9", 1, {x: 1800, opacity:1}, '-=0.7').set("#line9", {clearProps: 'x', onComplete: thirdAnimation});
+			tl1.to("#line11", 1, {x: 1800, opacity:1}, '-=1');
+			tl1.to("#line12", 1, {x: 1800, opacity:1}, '-=0.9');
+			tl1.to("#line13", 1, {x: 1800, opacity:1}, '-=0.8');
+			tl1.to("#line14", 1, {x: 1800, opacity:1}, '-=0.7');
+			tl1.to("#line15", 1, {x: 1800, opacity:1}, '-=0.9');
+			tl1.to("#line16", 1, {x: 1800, opacity:1}, '-=0.85');
+			tl1.to("#line17", 1, {x: 1800, opacity:1}, '-=0.9');
+			tl1.to("#line18", 1, {x: 1800, opacity:1}, '-=0.8');
+			tl1.to("#line19", 1, {x: 1800, opacity:1}, '-=0.7');
 		
 			tl1.to("#txt-01",1,{opacity:1,ease: Power2.easeIn},'-=3.5');
-			
-/*
-	        tl1.to("#line2", 2.6, {x: 1800, opacity:1},'-=2.4').set("#line2", {clearProps: 'x'});
-	        tl1.to("#line3", 2.7, {x: 1800, opacity:1},'-=2.5').set("#line3", {clearProps: 'x'});
-	        tl1.to("#line4", 2.6, {x: 1800, opacity:1},'-=2.4').set("#line4", {clearProps: 'x'});
-	       	tl1.to("#line5", 2.7, {x: 1800, opacity:1},'-=2.5').set("#line5", {clearProps: 'x'});
-	        tl1.to("#line6", 2.8, {x: 1800, opacity:1},'-=2.6').set("#line6", {clearProps: 'x'});
-	        tl1.to("#line7", 2.9, {x: 1800, opacity:1},'-=2.7').set("#line7", {clearProps: 'x'});
-	        tl1.to("#line8", 2.5, {x: 1800, opacity:1},'-=2.3').set("#line8", {clearProps: 'x'});
-	        tl1.to("#line9", 2.6, {x: 1800, opacity:1},'-=2.4').set("#line9", {clearProps: 'x'});
- 
-   		
-	        tl1.to("#line2", 2.6, {x: 1800, opacity:1},'-=2').set("#line2", {clearProps: 'x'});
-	        tl1.to("#line3", 2.7, {x: 1800, opacity:1},'-=2').set("#line3", {clearProps: 'x'});
-	        tl1.to("#line4", 2.6, {x: 1800, opacity:1},'-=2').set("#line4", {clearProps: 'x'});
-	       	tl1.to("#line5", 2.7, {x: 1800, opacity:1},'-=2').set("#line5", {clearProps: 'x'});
-	        tl1.to("#line6", 2.8, {x: 1800, opacity:1},'-=2').set("#line6", {clearProps: 'x'});
-	        tl1.to("#line7", 2.9, {x: 1800, opacity:1},'-=2').set("#line7", {clearProps: 'x'});
-	        tl1.to("#line8", 2.5, {x: 1800, opacity:1},'-=2').set("#line8", {clearProps: 'x'});
-	        tl1.to("#line9", 2.6, {x: 1800, opacity:1},'-=2').set("#line9", {clearProps: 'x'});
+	 
+	       	tl1.to("#line21", 1, {x: 820, opacity:1,ease: Power2.easeOut},'-=0');
+	        tl1.to("#line22", 1, {x: 820, opacity:1,ease: Power2.easeOut},'-=0.85');
+	        tl1.to("#line23", 1, {x: 820, opacity:1,ease: Power2.easeOut},'-=0.9');
+	        tl1.to("#line24", 1, {x: 820, opacity:1,ease: Power2.easeOut},'-=0.85');
+	       	tl1.to("#line25", 1, {x: 820, opacity:1,ease: Power2.easeOut},'-=0.95');
+	        tl1.to("#line26", 1, {x: 820, opacity:1,ease: Power2.easeOut},'-=0.75');
+	        tl1.to("#line27", 1, {x: 820, opacity:1,ease: Power2.easeOut},'-=0.85');
+	        tl1.to("#line28", 1, {x: 820, opacity:1,ease: Power2.easeOut},'-=0.9'); 
+	       	tl1.to("#line29", 1, {x: 820, opacity:1,ease: Power2.easeOut},'-=0.7');
 
-	      
-	        */
-	    }
-
-
-	    function thirdAnimation(){
-
-	    	tl3 = new TimelineMax({repeat:0, repeatDelay: 0});
-
-
-	       	tl3.to("#line1", 1, {x: 820, opacity:1,ease: Power2.easeOut},'-=0');
-	        tl3.to("#line2", 1, {x: 820, opacity:1,ease: Power2.easeOut},'-=0.85');
-	        tl3.to("#line3", 1, {x: 820, opacity:1,ease: Power2.easeOut},'-=0.9');
-	        tl3.to("#line4", 1, {x: 820, opacity:1,ease: Power2.easeOut},'-=0.85');
-	       	tl3.to("#line5", 1, {x: 820, opacity:1,ease: Power2.easeOut},'-=0.95');
-	        tl3.to("#line6", 1, {x: 820, opacity:1,ease: Power2.easeOut},'-=0.75');
-	        tl3.to("#line7", 1, {x: 820, opacity:1,ease: Power2.easeOut},'-=0.85');
-	        tl3.to("#line8", 1, {x: 820, opacity:1,ease: Power2.easeOut},'-=0.9'); 
-	       	tl3.to("#line9", 1, {x: 820, opacity:1,ease: Power2.easeOut},'-=0.7');
-	    	tl3.to("#txt-01",1,{opacity:0,ease: Power2.easeIn}, '-=2');
+	    	tl1.to("#txt-01",1,{opacity:0,ease: Power2.easeIn}, '-=2');
 	
-	        tl3.to(["#deal","#phone-final"],.7,{x: 430, ease: Power1.easeOut},'-=.5');      
-			tl3.to(["#txt-02","#txt-03","#txt-04"],.5,{opacity:1, x: 50, ease: Power1.easeOut},'+=.75');
-			tl3.to(["#txt-02","#txt-03","#txt-04"],.6,{x: '-=20', ease: Power1.easeIn});
-			tl3.to(["#txt-05","#txt-06","#txt-07","#txt-08"],.6,{opacity:1, x: 50, ease: Power1.easeOut},'+=1');
-			tl3.to(["#txt-05","#txt-06","#txt-07","#txt-08"],.7,{x: '-=20', ease: Power1.easeOut});
+	        tl1.to(["#deal"],.7,{x: 430, ease: Power1.easeOut},'-=.5');   
+	        tl1.to(["#phone-final"],1,{opacity: 1, ease: Power1.easeOut});   
+			tl1.to(["#txt-02","#txt-03","#txt-04"],.5,{opacity:1, x: 50, ease: Power1.easeOut},'+=.75');
+			tl1.to(["#txt-02","#txt-03","#txt-04"],.6,{x: '-=20', ease: Power1.easeIn});
+			tl1.to(["#txt-05","#txt-06","#txt-07","#txt-08"],.6,{opacity:1, x: 50, ease: Power1.easeOut},'+=1');
+			tl1.to(["#txt-05","#txt-06","#txt-07","#txt-08"],.7,{x: '-=20', ease: Power1.easeOut});
 		}
 		
 		window.addEventListener('DOMContentLoaded', pageLoadedHandler, false);
