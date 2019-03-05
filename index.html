@@ -110,7 +110,7 @@
 		<img src="phone_final.png" id="phone-final"/>
 		<img src="deal_bar.png" id="deal"/>
 
-        <p id="txt-02">With YY Vodafone get the new</p>
+        <p id="txt-02">With Vodafone get the new</p>
 		<p id="txt-03">Google Pixel 3</p>
 		<p id="txt-04">with 5GB data, unlimited texts.</p>
 
@@ -164,7 +164,6 @@
 	        //
 	        tl1 = new TimelineMax({repeat:0, repeatDelay: 0});
 
-			/*
 			tl1.to("#line1", 1, {x: 1800, opacity:1},'-=0');
 			tl1.to("#line2", 1, {x: 1800, opacity:1}, '-=.9')
 			tl1.to("#line3", 1, {x: 1800, opacity:1}, '-=.8');
@@ -199,7 +198,6 @@
 
 	    	tl1.to("#txt-01",1,{opacity:0,ease: Power2.easeIn}, '-=2');
 	
-			*/
 	        tl1.to(["#deal"],.3,{x: 430, ease: Power1.easeOut},'-=.7');   
 	        tl1.to(["#phone-final"],0.8,{opacity: 1, ease: Power1.easeOut});   
 			tl1.to(["#txt-02","#txt-03","#txt-04"],.3,{opacity:1, x: 40, ease: Power1.easeIn},'+=0.5');
