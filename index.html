@@ -38,7 +38,7 @@
 		
 		#background, #txt-05, #logo, #phone-final {left:0;top:0;width:720px;height:576px;}
 		#background, #logo, #deal, #phone-spin {opacity: 1;}
-		#phone-final {opacity: 0;}
+		#txt-01,#txt-02,#txt-03,#txt-04,#txt-05, #txt-06,#txt-07,#txt-08, #phone-final {opacity: 0;}
 		#deal {left:-430px;top:0;width:720px;height:576px;opacity:1;}
 
 		#txt-01 {left:68px;top:86px;font-size: 78px;color:black;width:720px;height:576px;font-family: 'PT Sans', sans-serif;font-weight:bold;line-height: .8em;letter-spacing: -2px;opacity: 0;}
@@ -164,6 +164,7 @@
 	        //
 	        tl1 = new TimelineMax({repeat:0, repeatDelay: 0});
 
+			/*
 			tl1.to("#line1", 1, {x: 1800, opacity:1},'-=0');
 			tl1.to("#line2", 1, {x: 1800, opacity:1}, '-=.9')
 			tl1.to("#line3", 1, {x: 1800, opacity:1}, '-=.8');
@@ -198,12 +199,13 @@
 
 	    	tl1.to("#txt-01",1,{opacity:0,ease: Power2.easeIn}, '-=2');
 	
+			*/
 	        tl1.to(["#deal"],.3,{x: 430, ease: Power1.easeOut},'-=.7');   
 	        tl1.to(["#phone-final"],0.8,{opacity: 1, ease: Power1.easeOut});   
 			tl1.to(["#txt-02","#txt-03","#txt-04"],.2,{opacity:1, x: 35, ease: Power1.easeIn},'-=.5');
-			tl1.to(["#txt-02","#txt-03","#txt-04"],.2,{x: '-=5'});
+			tl1.to(["#txt-02","#txt-03","#txt-04"],.2,{x: '-=5', ease: Power1.easeOut});
 			tl1.to(["#txt-05","#txt-06","#txt-07","#txt-08"],.3,{opacity:1, x: 40, ease: Power1.easeIn},'+=0');
-			tl1.to(["#txt-05","#txt-06","#txt-07","#txt-08"],.2,{x: '-=10'});
+			tl1.to(["#txt-05","#txt-06","#txt-07","#txt-08"],.2,{x: '-=10', ease: Power1.easeOut});
 		}
 		
 		window.addEventListener('DOMContentLoaded', pageLoadedHandler, false);
